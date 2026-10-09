@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareBridge Hospital | Integrated Patient Care Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+    <div class="login-image">
+        <div class="login-image-content">
+            <div class="tag">🏥 Advanced Integrated Healthcare</div>
+            <h1>Your Health,<br>Our Priority</h1>
+            <p>
+                A modern integrated patient care and hospital management
+                platform connecting doctors, nurses, receptionists,
+                billing staff and administrators.
+            </p>
+        </div>
+    </div>
+
+    <div class="login-box">
+        <div class="login-card">
+            <div class="logo">
+                <div class="logo-icon">✚</div>
+                <div>
+                    <h2>CareBridge</h2>
+                    <small>Integrated Patient Care</small>
+                </div>
+            </div>
+
+            <h3>Welcome Back</h3>
+            <p class="sub">Sign in to access your hospital portal.</p>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+            </div>
+
+            <div class="form-group">
+                <label for="loginRole">Login As</label>
+                <select id="loginRole">
+                    <option value="admin">Administrator</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="receptionist">Receptionist</option>
+                    <option value="nurse">Nurse</option>
+                    <option value="billing">Billing Staff</option>
+                </select>
+            </div>
+
+            <button class="primary-btn full" onclick="login()">
+                🔐 Login to Portal
+            </button>
+
+            <div class="demo-login">
+                <b>Demo Login</b><br>
+                Admin: admin / admin123<br>
+                Doctor: doctor / doctor123<br>
+                Receptionist: reception / reception123<br>
+                Nurse: nurse / nurse123<br>
+                Billing: billing / billing123
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN APPLICATION -->
+<div id="app">
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">✚</div>
+            <div>
+                <h2>CareBridge Hospital</h2>
+                <small>Integrated Patient Care Management</small>
+            </div>
+        </div>
+
+        <div class="user-area">
+            <span id="welcomeUser"></span>
+            <span class="role-badge" id="currentRole"></span>
+            <button class="logout" onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <button onclick="showPage('home')" class="active">🏠 Home</button>
+        <button onclick="showPage('patients')">👤 Patients</button>
+        <button onclick="showPage('appointments')">📅 Appointments</button>
+        <button onclick="showPage('doctors')">👨‍⚕️ Doctors</button>
+        <button onclick="showPage('prescriptions')">💊 Prescriptions</button>
+        <button onclick="showPage('billing')">💳 Billing</button>
+        <button onclick="showPage('discharge')">📄 Discharge</button>
+        <button onclick="showPage('printPage')">🖨️ Print</button>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <span class="tag">✓ NABH-inspired digital healthcare experience</span>
+                <h1>Compassionate Care. Smarter Healthcare.</h1>
+                <p>
+                    Manage patients, appointments, prescriptions,
+                    billing and hospital workflows from one integrated
+                    platform.
+                </p>
+                <div class="hero-buttons">
+                    <button class="white-btn" onclick="showPage('appointments')">
+                        📅 Book Appointment
+                    </button>
+                    <button class="outline-btn" onclick="showPage('doctors')">
+                        👨‍⚕️ Explore Doctors
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat"><strong>150+</strong><span>Doctors</span></div>
+            <div class="stat"><strong>500+</strong><span>Hospital Beds</span></div>
+            <div class="stat"><strong>24/7</strong><span>Emergency Care</span></div>
+            <div class="stat"><strong>15+</strong><span>Specialities</span></div>
+        </div>
+
+        <div class="section">
+            <div class="section-heading">
+                <h2>Our Specialities</h2>
+                <p>Expert care across multiple medical departments</p>
+            </div>
+
+            <div class="department-grid">
+                <div class="department">
+                    <div class="icon">❤️</div>
+                    <h3>Cardiology</h3>
+                    <p>Comprehensive heart and cardiovascular care.</p>
+                </div>
+                <div class="department">
+                    <div class="icon">🧠</div>
+                    <h3>Neurology</h3>
+                    <p>Advanced diagnosis and neurological treatment.</p>
+                </div>
+                <div class="department">
+                    <div class="icon">🦴</div>
+                    <h3>Orthopaedics</h3>
+                    <p>Bone, joint and musculoskeletal care.</p>
+                </div>
+                <div class="department">
+                    <div class="icon">👶</div>
+                    <h3>Paediatrics</h3>
+                    <p>Specialized healthcare for children.</p>
+                </div>
+                <div class="department">
+                    <div class="icon">🫁</div>
+                    <h3>Pulmonology</h3>
+                    <p>Respiratory and pulmonary care.</p>
+                </div>
+                <div class="department">
+                    <div class="icon">🚑</div>
+                    <h3>Emergency Care</h3>
+                    <p>24/7 emergency and critical care services.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-heading">
+                <h2>Meet Our Doctors</h2>
+                <p>Experienced specialists committed to patient care</p>
+            </div>
+
+            <div class="doctor-grid">
+                <div class="doctor-card">
+                    <img src="images/img1.png" alt="Dr. Ananya Sharma">
+                    <div class="doctor-info">
+                        <h3>Dr. Ananya Sharma</h3>
+                        <div class="speciality">Cardiologist</div>
+                        <p>12+ years experience in cardiovascular care.</p>
+                        <span class="available">● Available Today</span>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="images/img2.png" alt="Dr. Rahul Mehta">
+                    <div class="doctor-info">
+                        <h3>Dr. Rahul Mehta</h3>
+                        <div class="speciality">Neurologist</div>
+                        <p>Specialist in neurological disorders.</p>
+                        <span class="available">● Available Today</span>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="images/img3.png" alt="Dr. Priya Rao">
+                    <div class="doctor-info">
+                        <h3>Dr. Priya Rao</h3>
+                        <div class="speciality">Paediatrician</div>
+                        <p>Child healthcare and preventive medicine.</p>
+                        <span class="available">● Available Today</span>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="images/img4.png" alt="Dr. Arjun Kumar">
+                    <div class="doctor-info">
+                        <h3>Dr. Arjun Kumar</h3>
+                        <div class="speciality">Orthopaedic Surgeon</div>
+                        <p>Expert in bone and joint treatments.</p>
+                        <span class="available">● Available Today</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <h3>CareBridge Hospital</h3>
+                    <p>
+                        Integrated healthcare management platform
+                        designed to connect patients, doctors and
+                        hospital departments.
+                    </p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li>Home</li><li>Doctors</li>
+                        <li>Appointments</li><li>Emergency</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Departments</h3>
+                    <ul>
+                        <li>Cardiology</li><li>Neurology</li>
+                        <li>Orthopaedics</li><li>Paediatrics</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>
+                        📍 Bengaluru, Karnataka<br>
+                        ☎ +91 80 4000 5000<br>
+                        ✉ care@carebridge.com
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 CareBridge Hospital. All Rights Reserved.
+            </div>
+        </footer>
+    </section>
+
+    <!-- PATIENTS -->
+    <section id="patients" class="page">
+        <div class="page-container">
+            <div class="page-title">
+                <h1>Patient Management</h1>
+                <p>Register and manage patient information</p>
+            </div>
+            <div id="patientAccess"></div>
+        </div>
+    </section>
+
+    <!-- APPOINTMENTS -->
+    <section id="appointments" class="page">
+        <div class="page-container">
+            <div class="page-title">
+                <h1>Appointments</h1>
+                <p>Schedule and manage patient appointments</p>
+            </div>
+
+            <div class="appointment-box">
+                <div class="card">
+                    <h2>Book Appointment</h2><br>
+
+                    <div class="form-group">
+                        <label for="appointmentPatient">Patient Name</label>
+                        <input id="appointmentPatient" placeholder="Patient name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentDoctor">Doctor</label>
+                        <select id="appointmentDoctor">
+                            <option>Dr. Ananya Sharma</option>
+                            <option>Dr. Rahul Mehta</option>
+                            <option>Dr. Priya Rao</option>
+                            <option>Dr. Arjun Kumar</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentDate">Date</label>
+                        <input type="date" id="appointmentDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentTime">Time</label>
+                        <input type="time" id="appointmentTime">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentReason">Reason</label>
+                        <textarea id="appointmentReason" rows="3" placeholder="Reason for appointment"></textarea>
+                    </div>
+
+                    <button class="primary-btn" onclick="bookAppointment()">Book Appointment</button>
+                </div>
+
+                <div class="info-box">
+                    <h3>Today's Schedule</h3>
+                    <ul id="appointmentList">
+                        <li><b>09:30 AM</b> — Dr. Ananya Sharma</li>
+                        <li><b>11:00 AM</b> — Dr. Rahul Mehta</li>
+                        <li><b>01:30 PM</b> — Dr. Priya Rao</li>
+                        <li><b>04:00 PM</b> — Dr. Arjun Kumar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section id="doctors" class="page">
+        <div class="page-container">
+            <div class="page-title">
+                <h1>Our Doctors</h1>
+                <p>Find specialists and view their profiles</p>
+            </div>
+
+            <div class="doctor-grid">
+                <div class="doctor-card">
+                    <img src="images/img1.png" alt="Dr. Ananya Sharma">
+                    <div class="doctor-info">
+                        <h3>Dr. Ananya Sharma</h3>
+                        <div class="speciality">Cardiology</div>
+                        <p>MBBS, MD Cardiology<br>Experience: 12 Years</p>
+                        <button class="primary-btn" onclick="doctorAppointment('Dr. Ananya Sharma')">Book Appointment</button>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="images/img2.png" alt="Dr. Rahul Mehta">
+                    <div class="doctor-info">
+                        <h3>Dr. Rahul Mehta</h3>
+                        <div class="speciality">Neurology</div>
+                        <p>MBBS, DM Neurology<br>Experience: 10 Years</p>
+                        <button class="primary-btn" onclick="doctorAppointment('Dr. Rahul Mehta')">Book Appointment</button>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="images/img3.png" alt="Dr. Priya Rao">
+                    <div class="doctor-info">
+                        <h3>Dr. Priya Rao</h3>
+                        <div class="speciality">Paediatrics</div>
+                        <p>MBBS, MD Paediatrics<br>Experience: 9 Years</p>
+                        <button class="primary-btn" onclick="doctorAppointment('Dr. Priya Rao')">Book Appointment</button>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="images/img4.png" alt="Dr. Arjun Kumar">
+                    <div class="doctor-info">
+                        <h3>Dr. Arjun Kumar</h3>
+                        <div class="speciality">Orthopaedics</div>
+                        <p>MBBS, MS Orthopaedics<br>Experience: 14 Years</p>
+                        <button class="primary-btn" onclick="doctorAppointment('Dr. Arjun Kumar')">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESCRIPTIONS -->
+    <section id="prescriptions" class="page">
+        <div class="page-container">
+            <div class="page-title">
+                <h1>Prescription Management</h1>
+                <p>Doctor-authorized medication management</p>
+            </div>
+            <div id="prescriptionAccess"></div>
+        </div>
+    </section>
+
+    <!-- BILLING -->
+    <section id="billing" class="page">
+        <div class="page-container">
+            <div class="page-title">
+                <h1>Billing &amp; Payments</h1>
+                <p>Manage hospital charges and invoices</p>
+            </div>
+            <div id="billingAccess"></div>
+        </div>
+    </section>
+
+    <!-- DISCHARGE -->
+    <section id="discharge" class="page">
+        <div class="page-container">
+            <div class="page-title">
+                <h1>Patient Discharge</h1>
+                <p>Manage discharge summaries and patient completion</p>
+            </div>
+            <div id="dischargeAccess"></div>
+        </div>
+    </section>
+
+    <!-- PRINT PAGE -->
+    <section id="printPage" class="page">
+        <div class="page-container">
+            <div class="page-title">
+                <h1>Patient Report</h1>
+                <p>Generate and print patient information</p>
+            </div>
+
+            <div class="card">
+                <div class="no-print">
+                    <button class="print-btn" onclick="window.print()">🖨️ Print Patient Report</button>
+                    <br><br>
+                </div>
+
+                <div id="printContent">
+                    <h2>CareBridge Hospital</h2>
+                    <p>Integrated Patient Care Management System</p>
+                    <hr><br>
+                    <h3>Patient Information</h3><br>
+
+                    <table>
+                        <tr><th>Patient ID</th><td>P1001</td></tr>
+                        <tr><th>Patient Name</th><td>Rahul Sharma</td></tr>
+                        <tr><th>Age</th><td>42</td></tr>
+                        <tr><th>Gender</th><td>Male</td></tr>
+                        <tr><th>Blood Group</th><td>O+</td></tr>
+                        <tr><th>Department</th><td>Cardiology</td></tr>
+                        <tr><th>Attending Doctor</th><td>Dr. Ananya Sharma</td></tr>
+                    </table>
+
+                    <br>
+                    <p>This report is generated from the CareBridge Integrated Patient Care System.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
