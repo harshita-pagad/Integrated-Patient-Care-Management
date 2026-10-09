@@ -1,6 +1,6 @@
 # 🏥 CareBridge – Hospital Management System
 
-🔗 **[Visit CareBridge](#)** <!-- Add your live website link here -->
+🔗 **[Visit CareBridge](https://harshita-pagad.github.io/Integrated-Patient-Care-Management/)**
 
 CareBridge is an integrated hospital management system designed to simplify patient care and hospital operations.
 
